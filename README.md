@@ -11,7 +11,11 @@
 
 ***
 
-### To run
+### To run 
+
+Visit : [https://om-pharmacy-app.vercel.app](https://om-pharmacy-app.vercel.app) 
+
+==Tested on Node JS - 20.16.0==
 
 ##### 1. Install node packages.
 ```
@@ -30,6 +34,9 @@ npm run dev
 
 ##### 4. Use these details for loggin in:
 Email : johndoe@mclernons.ie | Passwod : 12345678
+
+
+
 
 ***
 
