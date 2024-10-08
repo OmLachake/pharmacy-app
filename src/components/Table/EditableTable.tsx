@@ -1,8 +1,7 @@
 import React, { useMemo, useState } from "react";
 import { useTable } from "react-table";
-import ContentEditable from "react-contenteditable";
 import { IoMdArrowDropdown } from "react-icons/io";
-
+import EditableCell from './Cell'
 const UpdateOnHandTable = () => {
   const [data, setData] = useState([
     { location: "Warehouse", onHand: "5" },
@@ -22,12 +21,12 @@ const UpdateOnHandTable = () => {
         Cell: EditableCell,
       },
     ],
-    []
+    [data]
   );
 
   const tableInstance = useTable({ columns, data });
 
-  const updateMyData = (rowIndex, columnId, value) => {
+  const updateMyData = (rowIndex:any, columnId:any, value:any) => {
     setData((old) =>
       old.map((row, index) => {
         if (index === rowIndex) {
@@ -91,25 +90,5 @@ const UpdateOnHandTable = () => {
   );
 };
 
-const EditableCell = ({ value, rowIndex, columnId, updateMyData }) => {
-  const [editableValue, setEditableValue] = useState(value);
-
-  const handleChange = (e) => {
-    setEditableValue(e.target.value);
-  };
-
-  const handleBlur = () => {
-    updateMyData(rowIndex, columnId, editableValue);
-  };
-
-  return (
-    <ContentEditable
-      html={editableValue}
-      onChange={handleChange}
-      onBlur={handleBlur}
-      className="overflow-hidden w-full p-2"
-    />
-  );
-};
 
 export default UpdateOnHandTable;

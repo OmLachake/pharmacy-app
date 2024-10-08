@@ -16,11 +16,11 @@ function Header() {
 
 
 //   NOTE: Uncomment this when actually submitting.
-//   useEffect(()=>{
-//     if(!isLoggedIn){
-//         router.push('/signin')
-//     }
-//   },[isLoggedIn])
+  useEffect(()=>{
+    if(!isLoggedIn){
+        router.push('/signin')
+    }
+  },[isLoggedIn])
 
   const toggleSideMenu = () => {
     setSideMenu((prevState)=>(!prevState));

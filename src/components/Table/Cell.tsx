@@ -21,3 +21,5 @@ const EditableCell = ({ value, rowIndex, columnId, updateMyData }:any) => {
       />
     );
   };
+
+export default EditableCell

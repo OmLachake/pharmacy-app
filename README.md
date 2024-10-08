@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pharmacy Stock Management Web App.
 
-## Getting Started
+### Built Using : 
 
-First, run the development server:
+1. **Next.js** 14
+2. **React.js** 18
+3. **Recoil** - for State management.
+4. **Tailwind CSS** - for Styling
+5. **React Table**
 
-```bash
+
+***
+
+### To run
+
+##### 1. Install node packages.
+```
+npm install
+``` 
+
+If there are any conflicts, use the `--force` option.
+
+##### 2. Open the folder in terminal and use the run command.
+```
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+##### 3. Go to `localhost:3000` on your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+***
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Folder Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+📦src
+ ┣ 📂app
+ ┃ ┣ 📂(auth)
+ ┃ ┃ ┗ 📂signin
+ ┃ ┣ 📂manage-stock
+ ┃ ┃ ┣ 📂[productId]
+ ┃ ┣ 📜globals.css
+ ┣ 📂atoms
+ ┣ 📂components
+ ┣ 📂Data
+ ┗ 📜utils.ts
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The tree above represents a short description of the folder structure used.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- *atoms* contain the state stores for recoil js.
+- the main *app* directory is the **Main Menu** or home page.
+- All the styles and extra classes are in the `globals.css` file.
+- `tailwind.config.ts` contains custom classes and definitions for colors and media query sizes. Although never used, it also contains some of the font styles.
+- The `EditableTable.tsx` and `Cell.tsx` make up the in-place table editing feature. It uses the `contentEditable` attribute of HTML through `react-contenteditable`.
+- The user authentication is stored on `sessionStorage` and the state is managed centrally using Recoil. The Sign In and Sign Out both the methods are provided.
+- The app has a search bar with debouncing to optimize performance and avoid unnecessary re-renders. Implemented with `lodash.debounce` to delay the search while the user is typing. It can be found in `./src/app/manage-stock/page.tsx` and `./src/components/SearchBar.tsx`. 
+- A Custom modal is implemented with a backdrop to handle actions such as updating stock or confirming actions. It can be found in `./src/components/Modal.tsx` 
+- 
+***
+
+### Room for Improvements : 
+
+1. Add unit testing for components.
+2. Reducing repititve code logic in table rendering and input handling.
+3. SearchBar filtering needs more validation, along with other state management functions such as user authenticaion and table inputs ( content-editable can be easily susceptible to XSS attacks).
+4. Inline styling needs to be reduced.... too much of repition for flexbox and a few other stylings.
+5. Needs more error handling to avoid edge cases in tables and authentication.
+---
