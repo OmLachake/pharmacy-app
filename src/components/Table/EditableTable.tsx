@@ -25,7 +25,7 @@ const UpdateOnHandTable = () => {
   );
 
   const tableInstance = useTable({ columns, data });
-
+  /* eslint-disable @typescript-eslint/no-explicit-any */
   const updateMyData = (rowIndex:any, columnId:any, value:any) => {
     setData((old) =>
       old.map((row, index) => {
