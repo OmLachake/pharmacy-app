@@ -12,10 +12,9 @@ interface IInputField{
     error:boolean,
     errorMessage:string
     required:boolean,
-    nolabel?:boolean
 }
 
-function InputField({ name, value, type, onChange, error, errorMessage ,required, nolabel=false }: IInputField) {
+function InputField({ name, value, type, onChange, error, errorMessage ,required }: IInputField) {
     const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false)
     
     const togglePassword = () => setIsPasswordVisible((prevState)=>(!prevState))

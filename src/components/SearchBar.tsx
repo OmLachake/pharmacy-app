@@ -11,7 +11,7 @@ function SearchBar({onType}:{onType:(searchString:string)=>void}) {
   const router=useRouter()
 
   const handleSearchStringChange = (e:React.SyntheticEvent) =>{
-    let target = e.target as HTMLInputElement;
+    const target = e.target as HTMLInputElement;
     setSearchString(target.value);
     onType(searchString)
   }

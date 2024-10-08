@@ -28,11 +28,6 @@ function ProductPage({params}:{params:{productId:string}}) {
         onHand:0,
     })
 
-    const [stocks, setStocks] = useState<{
-        location:string,
-        onHand:number,
-    }[]|[]>([])
-    
     useEffect(() => {
 
         if(window){
@@ -45,9 +40,7 @@ function ProductPage({params}:{params:{productId:string}}) {
         if(product){
             setLocalProduct(product as IProduct)
             const onHand = product?.stock.reduce((total,count)=>total+count.onHand,0) ?? 0;
-            const stockLocations = product?.stock
             setCurrentStockLocation({location:'All Locations',onHand:onHand})
-            setStocks(stockLocations??[]) 
         }
            
     }, [])
@@ -91,7 +84,7 @@ function ProductPage({params}:{params:{productId:string}}) {
                     
                     <Button 
                         label='UPDATE' 
-                        onClick={()=>{}}
+                        onClick={()=>setModal(prevState=>!prevState)}
                         action='success'
                     />
                 </div>
@@ -211,7 +204,7 @@ function ProductPage({params}:{params:{productId:string}}) {
                     
                     <Button 
                         label='UPDATE' 
-                        onClick={()=>{}}
+                        onClick={()=>router.push('/manage-stock')}
                         action='success'
                     />
                 </div>

@@ -98,10 +98,10 @@ function SignIn() {
   };
 
   const submitForm = () =>{
-    let {passwordError,passwordErrorMessage} = ValidatePassword(password.value)
+    const {passwordError,passwordErrorMessage} = ValidatePassword(password.value)
     setPassword((prevState)=>({...prevState,passwordError,passwordErrorMessage}))
 
-    let {error,errorMessage} = ValidateEmail(email.value)
+    const {error,errorMessage} = ValidateEmail(email.value)
     setPassword((prevState)=>({...prevState,error,errorMessage}))
 
     if(!error && !passwordError){

@@ -38,7 +38,7 @@ export const LoadAuthFromLocalStorage = () =>{
     return user
 }
 
-export const GetProducts =<T> ()=>{
+export const GetProducts = () : IProduct[]=>{
     return products as IProduct[];
 }
 

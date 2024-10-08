@@ -2,7 +2,7 @@ import React from 'react'
 import Button from './Button'
 import {useRouter} from 'next/navigation'
 
-function NavigationLinks({...props}) {
+function NavigationLinks({}) {
   const router = useRouter();
 
   return (

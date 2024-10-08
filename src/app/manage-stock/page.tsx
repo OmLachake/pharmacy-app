@@ -24,7 +24,7 @@ export default function ManageStock() {
             }
         }   
 
-        const data = GetProducts<IProduct[]>()
+        const data = GetProducts()
         SetProducts(data)
         setLocalProducts(data)
 

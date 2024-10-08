@@ -48,11 +48,12 @@ const UpdateOnHandTable = () => {
       >
         <thead style={{ backgroundColor: "rgb(225, 231, 235)" }}>
           {tableInstance.headerGroups.map((headerGroup) => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
+            <tr {...headerGroup.getHeaderGroupProps()} key={crypto.randomUUID()}>
               {headerGroup.headers.map((column) => (
                 <th
                   {...column.getHeaderProps()}
                   className="px-0 py-2 border-b text-left text-sm font-semibold text-black border-2 border-gray-200"
+                  key={crypto.randomUUID()}
                 >
                   <div className="flex justify-start items-center">
                     <IoMdArrowDropdown size={20}/>
@@ -67,12 +68,13 @@ const UpdateOnHandTable = () => {
           {tableInstance.rows.map((row) => {
             tableInstance.prepareRow(row);
             return (
-              <tr {...row.getRowProps()}>
+              <tr {...row.getRowProps()} key={crypto.randomUUID()}>
                 {row.cells.map((cell) => (
                   <td
                     {...cell.getCellProps()}
                     className="border-2 border-gray-200 text-sm w-[50%] bg-gray-50 
                     whitespace-nowrap overflow-hidden text-ellipsis"
+                    key={crypto.randomUUID()}
                   >
                     {cell.render("Cell", {
                       updateMyData,

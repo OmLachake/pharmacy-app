@@ -28,7 +28,8 @@ npm run dev
 ##### 3. Go to `localhost:3000` on your browser.
 
 
-
+##### 4. Use these details for loggin in:
+Email : johndoe@mclernons.ie | Passwod : 12345678
 
 ***
 
@@ -56,7 +57,7 @@ The tree above represents a short description of the folder structure used.
 - The user authentication is stored on `sessionStorage` and the state is managed centrally using Recoil. The Sign In and Sign Out both the methods are provided.
 - The app has a search bar with debouncing to optimize performance and avoid unnecessary re-renders. Implemented with `lodash.debounce` to delay the search while the user is typing. It can be found in `./src/app/manage-stock/page.tsx` and `./src/components/SearchBar.tsx`. 
 - A Custom modal is implemented with a backdrop to handle actions such as updating stock or confirming actions. It can be found in `./src/components/Modal.tsx` 
-- 
+- Custom Tab components are added in `./src/components/Tabs.tsx` to be used in the Stock Management Page.
 ***
 
 ### Room for Improvements : 

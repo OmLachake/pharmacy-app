@@ -1,4 +1,4 @@
-import { useEffect, useRef,useState } from 'react'
+import { useState } from 'react'
 
 export interface ITab{
     title:string,

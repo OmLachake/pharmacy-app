@@ -1,10 +1,7 @@
 'use client'
 import { IProduct } from '@/atoms';
-import Button from '@/components/Button';
 import ProductCard from '@/components/Cards/ProductCard';
 
-import Modal from '@/components/Modal';
-import { useState } from 'react'
 
 function Available({products}:{products:IProduct[]}) {
  
@@ -18,10 +15,7 @@ function Available({products}:{products:IProduct[]}) {
   return(
     <div className='cards-container
     '>
-
         {renderProductCards()}
-        
-        
     </div>
   )
 
