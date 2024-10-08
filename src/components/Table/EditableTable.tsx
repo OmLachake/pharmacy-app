@@ -1,27 +1,33 @@
 import React, { useMemo, useState } from "react";
-import { useTable } from "react-table";
+import { useTable,Column  } from "react-table";
 import { IoMdArrowDropdown } from "react-icons/io";
 import EditableCell from './Cell'
+
+interface IStock {
+    location: string;
+    onHand: string;
+}
+
 const UpdateOnHandTable = () => {
-  const [data, setData] = useState([
+  const [data, setData] = useState<IStock[]>([
     { location: "Warehouse", onHand: "5" },
     { location: "Store", onHand: "10" },
   ]);
 
-  const columns = useMemo(
+  const columns: Column<IStock>[] = useMemo(
     () => [
       {
         Header: "Location",
-        accessor: "location",
+        accessor: "location", 
         Cell: EditableCell,
       },
       {
         Header: "On Hand",
-        accessor: "onHand",
+        accessor: "onHand", 
         Cell: EditableCell,
       },
     ],
-    [data]
+    []
   );
 
   const tableInstance = useTable({ columns, data });
