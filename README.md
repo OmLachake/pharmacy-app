@@ -33,7 +33,7 @@ npm run dev
 ***
 
 ### Folder Structure
-
+```
 📦src
  ┣ 📂app
  ┃ ┣ 📂(auth)
@@ -45,8 +45,7 @@ npm run dev
  ┣ 📂components
  ┣ 📂Data
  ┗ 📜utils.ts
-
-
+```
 The tree above represents a short description of the folder structure used.
 
 - *atoms* contain the state stores for recoil js.
