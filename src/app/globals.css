@@ -2,26 +2,250 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+
+@layer base {
+    a {
+        color          : inherit;
+        text-decoration: none;
+    }
+
+    * {
+        padding   : 0;
+        margin    : 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        @apply bg-white w-full h-[100vh] md:flex md:justify-center md:items-center overflow-x-hidden;
+    }
+
+    button {
+        @apply rounded-md font-semibold transition-all duration-300 ease-in-out hover:cursor-pointer focus:outline-none focus:ring-4
+        text-sm 
+        
+    
+    }
+    button:disabled{
+        @apply opacity-25 border disabled:pointer-events-none disabled:cursor-none
+    }
+
+    main{
+        @apply w-full relative
+    }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+    .text-balance {
+        text-wrap: balance;
+    }
+   
+    .login-form {
+        @apply w-full flex flex-col justify-start items-center space-y-4
+    }
+
+
+    /* Button Styles */
+    .filled {
+        @apply text-black;
+    }
+
+    .long {
+        @apply w-full py-2 md:py-3;
+    }
+
+    .auto {
+        @apply w-auto py-2 px-2 md:px-3 md:py-3;
+    }
+
+    .small {
+        @apply w-auto py-1 px-1 text-xs;
+    }
+
+    .default {
+        @apply bg-gray-300 hover:bg-navy-blue-light hover:shadow-[0_15px_20px_-15px_rgba(255,167,65,0.5)] hover:text-white;
+    }
+
+    .border.default {
+        @apply border-navy-blue bg-white text-navy-blue hover:bg-navy-blue-light hover:text-white;
+    }
+
+    .success {
+        @apply bg-green-500 hover:bg-green-600 hover:shadow-[0_15px_20px_-15px_rgba(0,255,72,0.5)] text-white;
+    }
+
+    .border.success {
+        @apply border-green-500 bg-white text-green-500 hover:bg-green-50;
+    }
+
+    .error {
+        @apply bg-red-500 text-white hover:bg-red-700 hover:shadow-[0_15px_20px_-15px_rgba(255,0,0,0.5)];
+    }
+
+    .border.error {
+        @apply border-red-500 bg-white text-red-500 hover:bg-red-50;
+    }
+
+    .warn {
+        @apply bg-yellow-400 text-white hover:bg-yellow-700 hover:shadow-[0_15px_20px_-15px_rgba(250,255,25,0.3)];
+    }
+
+    .border.warn {
+        @apply border-yellow-400 bg-white text-yellow-700 hover:bg-yellow-50;
+    }
+
+    .none {
+        @apply bg-gray-300 text-black hover:bg-gray-200 hover:shadow-[0_15px_20px_-15px_rgba(0,0,0,0.5)];
+    }
+
+    .border.none {
+        @apply border-gray-300 text-black hover:bg-gray-100;
+    }
+
+
+    
+
+    /* Input Field */
+    .input-field{
+        @apply flex flex-col w-full 
+    }
+    .input-field label{
+        @apply text-navy-blue text-sm font-bold
+    }
+    .input-field>div{
+        @apply inline-block relative 
+    }
+    .input-field>div>span{
+        @apply absolute right-2 top-[0%]
+        translate-y-[50%]
+        cursor-pointer
+    }
+    .input-field input{
+        @apply 
+        px-1 pb-1 mb-2 my-2 w-full
+        border-b-gray-300 border-b-2
+        focus:border-b-navy-blue focus:border-b-2
+        active:border-b-navy-blue focus:outline-none
+    }
+    .input-field .input-error{
+        @apply text-red-500;
+    }
+
+    /* Side bar */
+
+    .side-menu-mobile {
+        @apply md:hidden z-[10] fixed top-[-0%] bg-white left-[-100%] 
+        w-[100vw] h-[100vh] transition-all duration-500 border border-navy-blue
+        flex flex-col gap-2;
+    }
+
+    /* Containers */
+    .content{
+       @apply w-[80%] h-full container 
+        flex flex-col space-y-4 justify-start items-center
+        md:w-[50%]
+        xl:w-[30%];
+    }
+
+
+    .cards-container{
+       @apply  max-h-full h-full w-full flex flex-col items-center justify-start gap-y-5
+       md:w-[50%] py-5
+    }
+    /* Modal */
+
+    .overlay{
+        @apply top-0 left-0 fixed bg-[rgba(0,0,0,0.5)] w-[100vw] h-[100vh] backdrop-blur-sm;
+    }
+
+    .modal{
+        @apply 
+        relative rounded-md w-[80%] z-[100]
+        shadow-xl shadow-gray-500 border-gray-500
+        md:min-w-[30%]
+        md:max-w-[60%]
+        
+        
+        opacity-100
+        transition-all
+        duration-500
+    }
+
+    /* Typography */
+    .title{
+    @apply text-4xl font-bold text-navy-blue-light w-full  md:text-3xl;
+    }
+
+    .sub-title{
+    @apply text-lg font-semibold text-gray-400 w-full  md:text-sm;
+    }
+
+    /* Tabs */
+    .tabs-container{
+        @apply w-full container my-4
+    }
+    .tabs-content{
+         
+    }
+    .tabs-header{
+        @apply bg-[rgb(233,238,242)] w-full flex p-2 justify-evenly items-center rounded-md 
+        shadow-lg
+    }
+
+    .tab-title{
+        @apply 
+        w-[49%] text-center pb-2
+        text-gray-600 font-semibold
+        border-b-2 border-b-[rgb(233,238,242)]
+        hover:border-b-navy-blue hover:border-b-2 hover:text-navy-blue-light
+        focus:border-b-navy-blue focus:border-b-2 
+        rounded-sm
+        outline-none
+        transition-all
+        duration-300
+        cursor-pointer
+    }
+
+    .tab-title-active{
+        @apply border-b-navy-blue focus:border-b-2 
+    }
+
+    /* Product */
+
+    .product-details-container{
+        @apply container h-full w-full
+        flex flex-col justify-start items-center space-y-4
+        py-5 my-5
+        md:w-[70%]
+        lg:w-[40%]
+
+        md:shadow-lg md:border md:rounded-md
+    }
+    .product-details-title{
+        @apply text-lg font-bold uppercase text-center 
+    }
+
+    .product-field{
+        @apply w-full h-full 
+        flex justify-start items-center
+        md:w-[100%]
+    }
+
+    .product-field label{
+        @apply text-[rgb(53,66,74)] w-[50%] font-semibold
+    }
+
+    .product-field input {
+        @apply border w-[50%] p-1
+        rounded-md border-gray-400 
+
+        disabled:bg-gray-100 disabled:border-none
+    }
+    .product-field input[type='checkbox']{
+        @apply accent-navy-blue-light mr-4 flex-1
+    }
+
+    .product-field .inline-input {
+        @apply w-[80%] 
+    }
 }
